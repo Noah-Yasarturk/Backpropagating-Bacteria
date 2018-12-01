@@ -39,6 +39,7 @@
 import cv2
 import numpy as np
 from scipy import stats
+import matplotlib.pyplot as plt
 
 img1 = cv2.imread('Bacteria Dataset/Generated/PIL-14_3dayLBCR-2.jpg')
 img = cv2.imread('Bacteria Dataset/Generated/PIL-14_3dayLBCR-2.jpg',0)
@@ -71,6 +72,10 @@ x,y,w,h = cv2.boundingRect(contours[0])
 
 # Crop masked_data
 crop = masked_data[y:y+h,x:x+w] # Crop is the one we want to save, Noah
+
+#print(crop[:,:,1])
+plt.imshow(crop[:,:,1])
+plt.show
 
 #Code to close Window
 cv2.imshow('detected Edge',img1)
