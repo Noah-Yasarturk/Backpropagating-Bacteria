@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Created on Sat Dec  1 07:23:40 2018
@@ -16,8 +17,8 @@ from scipy import stats, ndimage
 
 
 def main():
-    folderIn = 'C:/Users/nyasa/Documents/Classes/IntroML/Project/Dataset/PIL_3dayLBCR-training/'
-    folderOut = 'C:/Users/nyasa/Documents/Classes/IntroML/Project/Reformatted Images 3/'
+    folderIn = '/Users/jeffreybruggeman/git/Machine-Learning/Bacteria Project/Bacteria Dataset/'
+    folderOut = '/Users/jeffreybruggeman/git/Machine-Learning/Bacteria Project/Bacteria Dataset/Generated/'
     #Suppress DecompressionBombError
     Image.MAX_IMAGE_PIXELS = None
     
@@ -71,7 +72,7 @@ def resizeAll_nSave(folderIn_path, folderOut_path, newPix_size, gray, CoM):
                     thisImg_Wd, thisImg_Ht = thisImg.size
                     #Find aspect ratio
                     thisImg_aspRatio = (thisImg_Wd/thisImg_Ht)
-                                  
+                    
                     print('Converting strain '+str(strn_num)+', copy '+str(strn_copy)+' to resized pixels.')
                     #Create resized image
                     ##min_img_wd has minumum pixel width; find proper height for this image using 
@@ -129,6 +130,11 @@ def resizeAll_nSave(folderIn_path, folderOut_path, newPix_size, gray, CoM):
         print('Done converting images to arrays and finding aspect ratios.')
         print('Now begin reconstruction of images with universalized dimensions.')
         #Find minimum width
+        
+        #######
+        print(widths)
+        #######
+        
         min_wd = min(widths)
         for i in range(len(img_RAs)):
             #Create image from the ith image array
