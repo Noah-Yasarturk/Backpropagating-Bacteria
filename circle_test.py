@@ -34,8 +34,8 @@
 # 
 # =============================================================================
 
-# From https://stackoverflow.com/questions/36911877/cropping-circle-from-image-using-opencv-python?rq=1
-# user  João Cartucho and Rahul Chougule
+# Based on code from https://stackoverflow.com/questions/36911877/cropping-circle-from-image-using-opencv-python?rq=1
+# by users João Cartucho and Rahul Chougule
 import cv2
 import numpy as np
 from scipy import stats
@@ -68,14 +68,14 @@ col = df['strain']
 for (k, Series) in col.iteritems():
 #     img = cv2.imread("Bacteria Dataset"/PIL-"+strain+"_3dayLBCR-"+file+".jpg")
     for file in range(1,5):
-        if not (os.path.isfile(f"{folder}/Bacteria Dataset/PIL-{df['strain'].at[k]}_3dayLBCR-{file}.jpg")):
+        if not (os.path.isfile(f"{folder}/Bacteria Dataset/Generated/Square/PIL-{df['strain'].at[k]}_3dayLBCR-{file}.jpg")):
             continue
-        img1 = cv2.imread(f"{folder}/Bacteria Dataset/Generated/PIL-{df['strain'].at[k]}_3dayLBCR-{file}.jpg")
-        img = cv2.imread(f"{folder}/Bacteria Dataset/Generated/PIL-{df['strain'].at[k]}_3dayLBCR-{file}.jpg",0)
+        img1 = cv2.imread(f"{folder}/Bacteria Dataset/Generated/Square/PIL-{df['strain'].at[k]}_3dayLBCR-{file}.jpg")
+        img = cv2.imread(f"{folder}/Bacteria Dataset/Generated/Square/PIL-{df['strain'].at[k]}_3dayLBCR-{file}.jpg",0)
         gray = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
         mode=(stats.mode(img, axis=None))
         
-        test_image=Image.open(f"{folder}/Bacteria Dataset/Generated/PIL-{df['strain'].at[k]}_3dayLBCR-{file}.jpg")
+        test_image=Image.open(f"{folder}/Bacteria Dataset/Generated/Square/PIL-{df['strain'].at[k]}_3dayLBCR-{file}.jpg")
 #        min_thresh=calculate_brightness(test_image)*255*1.5
         #t = min(min_thresh, mode[0])
         #print(mode[0], " ", calculate_brightness(test_image))
@@ -126,7 +126,7 @@ for (k, Series) in col.iteritems():
 #        print(f"{df['strain'].at[k]} {file} {mode[0]} ", calculate_brightness(test_image), " ", min_thresh)
         this = Image.fromarray(crop)
         img = this.resize((365,365), Image.ANTIALIAS)
-        img.save(f"{folder}/Bacteria Dataset/Generated/Trimmed/PIL-{df['strain'].at[k]}_3dayLBCR-{file}.jpg", optimize=True, quality=95)
+        img.save(f"{folder}/Bacteria Dataset/Generated/Circle/PIL-{df['strain'].at[k]}_3dayLBCR-{file}.jpg", optimize=True, quality=95)
         
 
 #Code to close Window
