@@ -54,12 +54,19 @@ def calculate_brightness(image):
 
     return 1 if brightness == 255 else brightness / scale
 
-file='PIL-331_3dayLBCR-4'
+file='PIL-90_3dayLBCR-2'
 img1 = cv2.imread(f'/Users/jeffreybruggeman/git/Machine-Learning/Bacteria Project/Bacteria Dataset/Generated/{file}.jpg')
 img = cv2.imread(f'/Users/jeffreybruggeman/git/Machine-Learning/Bacteria Project/Bacteria Dataset/Generated/{file}.jpg',0)
 gray = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
 mode=(stats.mode(img, axis=None))
-ret, thresh = cv2.threshold(gray, 177, 255, cv2.THRESH_BINARY)
+
+
+if(mode[0]==255):
+    min_thresh=200
+else:
+    min_thresh= (255*calculate_brightness(test_image))*1.3
+    
+ret, thresh = cv2.threshold(gray, 130, 255, cv2.THRESH_BINARY)
 test_image=Image.open(f"/Users/jeffreybruggeman/git/Machine-Learning/Bacteria Project/Bacteria Dataset/Generated/{file}.jpg")
 print(mode[0], " ",calculate_brightness(test_image))
 
@@ -71,7 +78,7 @@ mask = np.zeros((height,width), np.uint8)
 edges = cv2.Canny(thresh, 100, 200)
 #cv2.imshow('detected ',gray)
 cimg=cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
-circles = cv2.HoughCircles(edges, cv2.HOUGH_GRADIENT, 1, 10000, param1 = 10, param2 = 10, minRadius = 150, maxRadius = 250)
+circles = cv2.HoughCircles(edges, cv2.HOUGH_GRADIENT, 1, 10000, param1 = 10, param2 = 10, minRadius = 200, maxRadius = 300)
 for i in circles[0,:]:
     i[2]=i[2]+4
     # Draw on mask

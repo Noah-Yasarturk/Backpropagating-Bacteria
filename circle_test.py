@@ -123,13 +123,12 @@ for (k, Series) in col.iteritems():
 #        plt.imshow(thresh)
 #        plt.show
         print(f"Saving strain {df['strain'].at[k]} image {file}")
-        print(f"{df['strain'].at[k]} {file} {mode[0]} ", calculate_brightness(test_image), " ", min_thresh)
-        img = Image.fromarray(crop)
+#        print(f"{df['strain'].at[k]} {file} {mode[0]} ", calculate_brightness(test_image), " ", min_thresh)
+        this = Image.fromarray(crop)
+        img = this.resize((365,365), Image.ANTIALIAS)
         img.save(f"{folder}/Bacteria Dataset/Generated/Trimmed/PIL-{df['strain'].at[k]}_3dayLBCR-{file}.jpg", optimize=True, quality=95)
-        df2['image'].at['strain']=file
-        df2['mode'].at['strain']=mode[0]
-        calculate_brightness(test_image)
-print(df2)
+        
+
 #Code to close Window
 #cv2.imshow('detected Edge',img1)
 #cv2.imshow('Cropped Bacteria',crop) 
