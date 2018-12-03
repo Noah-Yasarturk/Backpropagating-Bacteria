@@ -102,7 +102,7 @@ def main():
                         copyfile((fIn_path+'all_Sobel/'+thisImg), (fOut_path1+thisImg_s))
                         
                         
-        #Iterate through strains with 4 copies
+        #Iterate through strains with 2 copies
         checkStrnFile_cir = Path(fIn_path+ 'all_cirs/'+bact_img(strn_num,2,0))
         checkStrnFile_Sbl = Path(fIn_path+ 'all_Sobel/'+bact_img(strn_num,2,0))
         if (checkStrnFile_cir.is_file()==True) and (checkStrnFile_Sbl.is_file()==True):
