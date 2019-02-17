@@ -85,7 +85,7 @@ def main():
     
     #Train the model
     print('Training model....')
-    model.fit(trn_imRAs, trn_lbls, epochs= 20) #100 used to work on def imgs
+    model.fit(trn_imRAs, trn_lbls, epochs= 25) 
     
     #Evaluate model
     test_loss, test_acc = model.evaluate(tst_imRAs, tst_lbls)
