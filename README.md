@@ -33,5 +33,5 @@ To overcome our limited dataset, we:
 2. Rotated the images at 15 degree intervals
 
 RESULTS
-
+Improved model classification accuracy from 1.7% prior to data preprocessing to 46% after, achieving a final test classification rate of 14%. Classification accuracy was severely hampered by a lack of images per class to train with.
 
