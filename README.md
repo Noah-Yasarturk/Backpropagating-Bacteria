@@ -14,7 +14,8 @@ Ensure all of the following programs are installed and updated.
 Program Flow:
 1. Ensure image dataset is in same directory as Python executables.
 2. Run convert_imgs.py to perform the below methods and create our training and testing sets (80% and 20% of data, respectively).
-3. Run make_NN_final.py and wait 20-45 minutes for model generation. Evaluation will be stored in same directory as "predictions.csv".
+3. Run sep_train_test.py to separate the generated images into training and testing sets.
+4. Run make_NN_final.py and wait 20-45 minutes for model generation. Evaluation will be stored in same directory as "predictions.csv".
 
 
 METHODS
