@@ -76,7 +76,7 @@ def main():
     
     #Train the model
     print('Training model....')
-    model.fit(trn_imRAs, trn_lbls, epochs=5)
+    model.fit(trn_imRAs, trn_lbls, epochs=10)
     
     #Evaluate model
     test_loss, test_acc = model.evaluate(tst_imRAs, tst_lbls)
