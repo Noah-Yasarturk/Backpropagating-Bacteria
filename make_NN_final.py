@@ -116,7 +116,7 @@ def main():
             predStrn = pred_strns[p]
             #Check if correct
             cor = 'Nope'
-            if (tst_lbls[p] == predStrn):
+            if (int(tst_lbls[p]) == int(predStrn)):
                 cor = 'Yes!'
             val = hi_val[p]
             csv_writer.writerow([fName, predStrn, cor, val])
