@@ -93,9 +93,7 @@ def main():
     
     #Make predictions
     predictions = model.predict(tst_imRAs)
-    print(np.argmax(predictions[0]))
-    #Get highest confidence value for this image
-    
+    print(np.argmax(predictions[0]))    
         
     #Get highest confidence value for this image
     hi_con = []
