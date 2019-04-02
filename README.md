@@ -1,7 +1,7 @@
 # Backpropagating-Bacteria
 This project is conducted during Pimental-Alarcon's Fall 2018 Intro to ML course using Pseudomonas aeruginosa colony culture images for the purpose of developing a model that might be able to classify strains of the bacteria.
 
-The code is specific to the image files we were given; the images are not to be distributed to the general public for the sake of protecting costly research. The images consisted of 2-4 images each of 65 strains of bacteria totalling 266 images.
+The code is specific to the image files we were given; the images are not to be distributed to the general public for the sake of protecting costly research. The images consisted of 2-4 images each of 65 strains of bacteria totaling 266 images.
 
 Python Dependencies:
 Ensure all of the following programs are installed and updated.
